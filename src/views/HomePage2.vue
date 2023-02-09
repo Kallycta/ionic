@@ -14,12 +14,9 @@
       </ion-header>
 
       <div id="container">
-        <strong>Ready to create an app?</strong>
-        <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+        <strong>HOME2!!!</strong>
         <button @click="startScan">startScan</button>
 
-        <br/>
-        <button @click="openCapacitorSite">OPEN</button>
         <img src="./logo_full_new.svg" alt="logo">
 
       </div>
@@ -27,26 +24,15 @@
   </ion-page>
 </template>
 
-<script  setup>
-
+<script setup >
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 
-// import { Browser } from '@capacitor/browser';
 
 
-// const openCapacitorSite = async () => {
-//   await Browser.open({ url: './home2' , windowName: '_self'});
-// };
-// openCapacitorSite()
-import { App } from '@capacitor/app';
 import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
 
-
 const startScan = async () => {
- await document.querySelector('body').classList.add('scanner-active');
-document.body.style.display = 'none';
-
-
+  alert('click!')
   // Check camera permission
   // This is just a simple example, check out the better checks below
   await BarcodeScanner.checkPermission({ force: true });
@@ -60,31 +46,11 @@ document.body.style.display = 'none';
   // if the result has content
   if (result.hasContent) {
     console.log(result.content); // log the raw scanned content
-    document.querySelector('body').classList.remove('scanner-active');
-    document.body.style.display = '';
   }
-
 };
-const stopScan =  async () => {
-  await BarcodeScanner.showBackground();
-  await  BarcodeScanner.stopScan();
-  document.querySelector('body').classList.remove('scanner-active');
-  document.body.style.display = '';
-};
-  App.addListener('backButton', (e) => {
-    console.log(e);
-    stopScan()
-  })
-
-
-
 </script>
 
-<style >
-body.scanner-active {
-  --background: transparent;
-  --ion-background-color: transparent;
-}
+<style scoped>
 #container {
   text-align: center;
   
@@ -112,7 +78,6 @@ body.scanner-active {
 #container a {
   text-decoration: none;
 }
-
 </style>
 
 
