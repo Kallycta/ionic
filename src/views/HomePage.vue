@@ -32,12 +32,16 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 
 // import { Browser } from '@capacitor/browser';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
+const openCapacitorSite = async () => {
+  await InAppBrowser.open(  'https://ionic-jade.vercel.app/home' , '_self');
+};
 
 // const openCapacitorSite = async () => {
-//   await Browser.open({ url: './home2' , windowName: '_self'});
+//   await Browser.open({ url: 'https://ionic-jade.vercel.app/home' });
 // };
-// openCapacitorSite()
+
 import { App } from '@capacitor/app';
 import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
 

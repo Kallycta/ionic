@@ -2,7 +2,12 @@
   "appId": "com.example.app",
   "appName": "myApp",
   "webDir": "dist",
-  "bundledWebRuntime": "false"
+  "bundledWebRuntime": "false",
+  "server": {
+    "allowNavigation": [
+      "*"
+    ]
+  }
 }
 
 
